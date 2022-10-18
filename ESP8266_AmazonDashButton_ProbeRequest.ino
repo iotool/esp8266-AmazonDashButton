@@ -8,8 +8,8 @@
 
  There are different firmware releases
  for the second model JK29LP:
- 30017420_US   55s 380mA  short push
- 40018220_WS   55s 380mA  short push
+ 30017420_US   10s 380mA  short push
+ 40018220_WS   10s 380mA  short push
  50018520_WS  120s 500mA  long press
  60019520_WS   26s 380mA  short push
 
@@ -41,7 +41,10 @@
  There is a white led after push that
  signal the incomplete setup.
  In this mode the device consume 380mW
- for 55 seconds and can used 135 times.
+ for 55 seconds and can used 135 times
+ with visible access point and 
+ for 10 seconds and 740 times with
+ hidden access point.
 
  Newer version 6xxx direct send probe
  request by short push without the hack.
@@ -82,7 +85,7 @@ void setup() {
 
   // Set up an access point
   WiFi.mode(WIFI_AP);
-  WiFi.softAP(ssid, password);
+  WiFi.softAP(ssid, password, 1, true);
 
   // Register event handlers.
   // Call "onStationConnected" each time a station connects
